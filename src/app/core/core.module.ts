@@ -7,7 +7,7 @@ import { ShoppingListService } from "../shopping-list/shopping-list.service";
 import { RecipeService } from "../recipes/recipe.service";
 import { AuthService } from "../auth/auth.service";
 import { AuthGuard } from "../auth/auth-guard.service";
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
     declarations:[
         HeaderComponent,
@@ -15,11 +15,13 @@ import { AuthGuard } from "../auth/auth-guard.service";
     ],
     imports:[
         SharedModule,
-        AppRoutingModule
+        AppRoutingModule,
+        BrowserAnimationsModule
     ],
     exports: [
         AppRoutingModule,
-        HeaderComponent
+        HeaderComponent,
+        BrowserAnimationsModule
     ],
     providers:[
         ShoppingListService, RecipeService, AuthService, AuthGuard
