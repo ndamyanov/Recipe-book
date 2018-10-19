@@ -18,6 +18,25 @@ import { trigger, state, style, transition, animate, group, keyframes } from '@a
       transition('normal <=> highlighted', animate(300)),
       // transition('highlighted => normal', animate(800))
     ]),
+
+
+    //myMenu
+    trigger('myMenu', [
+      state('close', style({
+        'background-color': 'gray',
+        'width': '100%', 'height' : '20px',
+        transform: 'translateX(0)'
+      })),
+      state('open', style({
+        'background-color': 'gray', 
+        'width': '100%', 'height' : '200px',
+        // transform: 'translateY(100px)'
+      })),
+      transition('open <=> close', animate(400)),
+      // transition('highlighted => normal', animate(800))
+    ]),
+
+
     trigger('wildState', [
       state('normal', style({
         'background-color': 'red',
@@ -107,12 +126,18 @@ import { trigger, state, style, transition, animate, group, keyframes } from '@a
 })
 export class HomeComponent {
  state = 'normal';
+ menuState = 'close';
   wildState = 'normal';
   list = ['Milk', 'Sugar', 'Bread'];
 
   onAnimate() {
     this.state == 'normal' ? this.state = 'highlighted' : this.state = 'normal';
     this.wildState == 'normal' ? this.wildState = 'highlighted' : this.wildState = 'normal';
+    //this.menuState == 'open' ? this.menuState = 'close' : this.menuState = 'open';
+  }
+
+  onMenuClick() {
+    this.menuState == 'open' ? this.menuState = 'close' : this.menuState = 'open';
   }
 
   onShrink() {
